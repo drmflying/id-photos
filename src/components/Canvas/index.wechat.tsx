@@ -1,5 +1,9 @@
 import React from 'react';
-import { Canvas } from 'remax/wechat';
-export default function index() {
-  return <Canvas />;
-}
+import { Canvas as WXCanvas } from 'remax/wechat';
+
+const InternalCanvas = (props, ref) => {
+  return <WXCanvas type='2d' {...props} ref={ref} />;
+};
+const Canvas = React.forwardRef(InternalCanvas);
+
+export default Canvas;
